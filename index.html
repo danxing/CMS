@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <title>主页</title>
+</head>
+<style>
+
+</style>
+<script>
+  $(function(){
+        var page=1;
+        var i=3; //每版放3个图片
+        var content=$('.container_boxs');
+        //var box=$(this).parents('.box')//当前元素的父级
+        var list=$('.list');
+        var v_width=content.width();//获取区域内容的宽度
+        var len=content.find('.list-content').length;//总的视图图片数
+        var page_count=Math.ceil(len/i);//只要不是整数，就往大的方向取最小的整数 
+
+        //next
+        $('.prv .prv_left').click(function(){
+
+            if(!list.is(':animated')){  //判断“内容展示区域”是否正在处于动画 
+                if(page==page_count){//已经到最后一个版面了,如果再向后，必须跳转到第一个版面。  
+                    list.animate({left:'0px'},'slow'); //通过改变left值，跳转到第一个版面  
+                    page=1;
+
+                }else{
+                    list.animate({left:'-='+v_width},'slow');//    通过改变left值，达到每次换一个版面 
+                    page++; 
+                }
+            }
+       
+         });
+
+        // prev
+        $('.prv .prv_right').click(function(){
+
+            if(!list.is(':animated')){
+                if(page==1){  //已经到第一个版面了，如果再向前，必须跳到最后一个版面
+                    list.animate({left:'-='+v_width*(page_count-1)},'slow');
+                    page=page_count;
+                }else{
+                    list.animate({left:'+='+v_width},'slow');  
+                    page--;
+                } 
+            }
+        })
+
+  })
+</script>
+<body>
+<!-- <script src="js/bootstrap.min.js"></script> -->
+    <div class="big_navba" style="">
+      <div class="container">
+     <!--  navbar -->
+            <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluid">
+                      <div class="navbar-header">
+                       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+                      </div>
+                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+                          <ul class="nav navbar-nav">
+                          <li class="active"><a href="index.html">首页</a></li>
+                          <li><a href="tedian.html">CMS特点</a></li>
+                          <li><a href="#">插件扩展</a></li>
+                          <li><a href="jianzhananli.html">建站案例</a></li>
+                          <li><a href="help.html">服务帮助</a></li>
+                          <li><a href="#">论坛交流</a></li>
+                          </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                          <li><a href="dengl.html"><span class="glyphicon glyphicon-user"></span>登录</a></li>
+                        </ul>
+                      </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+            </nav>
+      </div>
+    </div>
+<!--  /.navbar -->
+    <div class="container-fluid" style="padding:0;">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="img/banner.jpg">
+                  <div class="carousel-caption banner_tex index_banner">
+                    <p class="p0">旅烨CMS建站系统</p>
+                    <p class="p1">简单而强大的内容管理系统，开源、安全、值得信赖</p>
+                    <button type="button" class="btn btn-default btn-lg touming"><a href="#">立即下载</a></button>
+                    <div class="num">
+                   
+                    <div class="num-p">
+                      <p style="border-right:1px solid #a4abb1;"><strong>11781</strong><span>次</span><br>安装量</p>
+                      <p style="border-right:1px solid #a4abb1;"><strong>9781</strong><span>次</span><br>下载量</p>
+                      <p><strong>7</strong><span>次</span><br>更新次数</p>
+                    </div> 
+                    </div>
+                    <p class="banner_tex_footer_p">旅烨CMS更安全、更便捷、更实用</p>
+                  </div>
+                </div>
+                <div class="item">
+                  <img src="img/banner.jpg">
+                       <div class="carousel-caption banner_tex index_banner">
+                          <p class="p0">旅烨CMS建站系统</p>
+                          <p class="p1">简单而强大的内容管理系统，开源、安全、值得信赖</p>
+                          <button type="button" class="btn btn-default btn-lg touming"><a href="#">立即下载</a></button>
+                          <div class="num">
+                         
+                          <div class="num-p">
+                            <p style="border-right:1px solid #a4abb1;"><strong>11781</strong><span>次</span><br>安装量</p>
+                            <p style="border-right:1px solid #a4abb1;"><strong>9781</strong><span>次</span><br>下载量</p>
+                            <p><strong>7</strong><span>次</span><br>更新次数</p>
+                          </div> 
+                          </div>
+                          <p class="banner_tex_footer_p" >旅烨CMS更安全、更便捷、更实用</p>
+                        </div>
+                </div>
+                <div class="item">
+                    <img src="img/banner.jpg">
+                        <div class="carousel-caption banner_tex index_banner">
+                        <p class="p0">旅烨CMS建站系统</p>
+                        <p class="p1">简单而强大的内容管理系统，开源、安全、值得信赖</p>
+                        <button type="button" class="btn btn-default btn-lg touming"><a href="#">立即下载</a></button>
+                        <div class="num">
+                       
+                        <div class="num-p">
+                          <p style="border-right:1px solid #a4abb1;"><strong>11781</strong><span>次</span><br>安装量</p>
+                          <p style="border-right:1px solid #a4abb1;"><strong>9781</strong><span>次</span><br>下载量</p>
+                          <p><strong>7</strong><span>次</span><br>更新次数</p>
+                        </div> 
+                        </div>
+                        <p class="banner_tex_footer_p">旅烨CMS更安全、更便捷、更实用</p>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+    </div>
+
+
+
+
+    <div class="big_row big_row_box">
+    <div class="container_boxs">
+
+        <div class="titles">
+          <h3>建站案例</h3>
+          <p>打造丰富的建站模板，满足客户苛刻要求</p>
+        </div>
+        
+          <div class="row list">
+               <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 list-content">
+                <div class="thumbnail">
+                  <img src="img/imgs_03.png">
+                  <div class="caption">
+                    <h4>旅烨CMS企业站 - 古井酒</h4>
+                    <p style="font-size:13px;">旅烨cms建站系统由旅烨自主开发建站系统，对企业站展示做了全面的升级，其中包含设计布局、交互动效jQuery.....</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 list-content">
+                <div class="thumbnail">
+                  <img src="img/imgs_05.png">
+                  <div class="caption">
+                    <h4>旅烨CMS门户站 - 美食天下</h4>
+                    <p style="font-size:13px;">旅烨cms建站系统由旅烨自主开发建站系统，对企业站展示做了全面的升级，其中包含设计布局、交互动效jQuery....</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 list-content">
+                <div class="thumbnail">
+                  <img src="img/imgs_07.jpg">
+                  <div class="caption">
+                    <h4>旅烨CMS电商站 - 珍品网</h4>
+                    <p style="font-size:13px;">旅烨cms建站系统由旅烨自主开发建站系统，对企业站展示做了全面的升级，其中包含设计布局、交互动效jQuery....</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 list-content">
+                <div class="thumbnail">
+                  <img src="img/imgs_05.png">
+                  <div class="caption">
+                    <h4>旅烨CMS企业站 - 古井酒</h4>
+                    <p style="font-size:13px;">旅烨cms建站系统由旅烨自主开发建站系统，对企业站展示做了全面的升级，其中包含设计布局、交互动效jQuery.....</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 list-content">
+                <div class="thumbnail">
+                  <img src="img/imgs_03.png">
+                  <div class="caption">
+                    <h4>旅烨CMS门户站 - 美食天下</h4>
+                    <p style="font-size:13px;">旅烨cms建站系统由旅烨自主开发建站系统，对企业站展示做了全面的升级，其中包含设计布局、交互动效jQuery....</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 list-content">
+                <div class="thumbnail">
+                  <img src="img/imgs_07.jpg">
+                  <div class="caption">
+                    <h4>旅烨CMS电商站 - 珍品网</h4>
+                    <p style="font-size:13px;">旅烨cms建站系统由旅烨自主开发建站系统，对企业站展示做了全面的升级，其中包含设计布局、交互动效jQuery....</p>
+                  </div>
+                </div>
+              </div>
+         </div>
+
+         <div class="row buttons prv">
+               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 prv_left" style='text-align: center;'>
+                 <button type="button" class="btn btn-default glyphicon glyphicon-chevron-left" style="padding:1% 2%;text-align: center;font-size:20px;background: #F2F2F2;"></button>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 glyphicon-chevron-center" style='text-align: center;'>
+                 <button type="button" class="btn btn-default" style="text-align: center;font-size:20px;border:1px solid #666;background: #F2F2F2;">查看更多</button>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 prv_right" style='text-align: center;'>
+                 <button class="btn btn-default glyphicon glyphicon-chevron-right" style="text-align: center;font-size:20px;padding:1% 2%;background: #F2F2F2;"></button>
+               </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+
+   <div class="container-fluid what">
+          <h3 style="font-size:40px;">什么是旅烨CMS</h3>
+          <p style="font-size:18px;">基于ThinkPHP最新版本ThinkPHP 3.2.2,全新的架构和模块化的开发机制，便于灵活扩展和二次开发。</p>
+   </div>
+   <div class="big_rows">
+      <div class="container">
+          <div class="titles">
+          <h3>旅烨CMS特点</h3>
+          <p>全面覆盖中小企业建站需求，不断增加完善插件、内容模型、安全稳健。</p>
+          </div>
+          <div class="row rows">
+            <div class="col-lg-0 col-md-0 col-ms-0 col-xs-0">
+            </div>
+            <div class="col-lg-2 col-md-2 col-ms-12 col-xs-12">
+              <img src="img/img-a.jpg" alt="">
+              <h4>插件丰富</h4>
+              <p>网站运营中实现各种方便与快捷</p>
+            </div>
+            <div class="col-lg-2 col-md-2 col-ms-12 col-xs-12">
+              <img src="img/02-cms_03.jpg" alt="">
+              <h4>模板众多</h4>
+              <p>众多插件丰富您的网站功能</p>
+            </div>
+            <div class="col-lg-2 col-md-2 col-ms-12 col-xs-12">
+              <img src="img/03-cms_03.jpg" alt="">
+              <h4>内容模型</h4>
+              <p>可以适应不同需求，让您快速建站</p>
+            </div>
+            <div class="col-lg-2 col-md-2 col-ms-12 col-xs-12">
+              <img src="img/04-cms_03.jpg" alt="">
+              <h4>功能模块</h4>
+              <p>更方便快捷的满足您建站需求</p>
+            </div>
+            <div class="col-lg-2 col-md-2 col-ms-12 col-xs-12">
+              <img src="img/06-cms_03.jpg" alt="">
+              <h4>专题聚合</h4>
+              <p>各种信息聚合在一起，用于网站运营</p>
+            </div>
+            <div class="col-lg-0 col-md-0 col-ms-0 col-xs-0">
+            </div>
+          </div>
+      </div>
+      <div class="titles">
+          <h3>新建站网站</h3>
+          <p>他们选择我们，是对我们的认可和信任</p>
+          </div>
+   </div>
+   <div class="container">
+     
+          <div class="row">
+              <div class="col-lg-6 col-md-6 col-ms-12 col-xs-12 left_text">
+                <img src="img/gg_03.jpg">
+              </div>
+              <div class="col-lg-6 col-md-6 col-ms-12 col-xs-12 right_text">
+                <h4>思而安全防护装备（上海）有限公司</h4>
+                <a href="#">www.sirshanghai.cn</a>
+                <div class="text_txt">意大利SIR SAFETY SYSTEM S.P.A.公司成立于70年代，已经有三十多年的持续发展历史，是生产和销售个人安全防护装备的欧洲知名企业。公司总部位于意大利Assisi市，拥有2.5万平方米的厂房和办公楼，设有各个管理部门、研发和试验部门、生产部门和用自身开发软件管理的自动化仓库，并拥有ISO9001:2008质量认证。</div>
+                <div class="sm-btn">
+                <button type="button" class="btn btn-default glyphicon glyphicon-chevron-left btn-box"style="text-align: center;font-size:20px;padding:1% 2%;"></button>
+                <!--  -->
+                <button class="btn btn-default glyphicon glyphicon-chevron-right btn-box" style="text-align: center;font-size:20px;padding:1% 2%;"></button>
+                </div>
+              </div>
+          </div>
+          <div class="footer_buttopn">
+              <button type="button" class="btn btn-default btn-box" style="text-align: center;font-size:20px;padding:0.5% 7%;border:1px solid #666;">查看更多</button>
+          </div>
+   </div>
+      <div class="big_row">
+       <div class="container">
+           <div class="titles">
+              <h3>服务帮助</h3>
+              <p>让我们一起完成更好用的建站系统（旅烨CMS），为大家提供更优质的产品</p>
+          </div>
+          <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-12 col-xm-12 hot_box" style="padding:0;">
+
+
+            <div class="row" >
+            <div class="col-lg-11 col-md-11 col-xs-12 hot_box1" style="border-radius:2px;background:#ffffff;padding:0;">
+             <div class="row">
+                  <div class="col-lg-2 col-md-2 col-xs-2 help hot_box4">
+                    <p>2016</p>
+                    <h3>09</h3>
+                    <p>27</p>
+                  </div>
+                  <div class="col-lg-10 col-md-10 col-xs-10 help2 hot_box1_a">
+                    <div><a href="">后台登录成功邮件通知插件</a><p style="float:right;">点击：32/次</p></div>
+                    <span style="display:block;margin:17px 0;">1.0.0</span>
+                    <p>后台登录成功邮件通知!</p>
+                  </div>
+                </div>
+             </div>
+            </div>
+
+
+                <div class="row">
+                <div class="col-lg-11 col-md-11 col-xs-12" style="background:#ffffff;border-radius:2px;margin-top:39px;padding:0;">
+                <div class="row">
+                  <div class="col-lg-2 col-md-2 col-xs-2 help hot_box2">
+                    <p>2016</p>
+                    <h3>09</h3>
+                    <p>27</p>
+                  </div>
+                  <div class="col-lg-10 col-md-10 col-xs-10 help2 hot_box1_b">
+                    <div><a href="">后台登录成功邮件通知插件</a><p style="float:right;">点击：32/次</p></div>
+                    <span style="display:block;margin:17px 0;">1.0.0</span>
+                    <p>后台登录成功邮件通知!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+               <div class="row hot_box3">
+               <div class="col-lg-11 col-md-11 col-xs-12" style="background:#ffffff;border-radius:2px;margin-top:39px;padding:0;">
+               <div class="row">
+                  <div class="col-lg-2 col-md-2 col-xs-2 help">
+                    <p>2016</p>
+                    <h3>09</h3>
+                    <p>27</p>
+                  </div>
+                  <div class="col-lg-10 col-md-10 col-xs-10 help2 hot_box1_c">
+                    <div><a href="">后台登录成功邮件通知插件</a><p style="float:right;">点击：32/次</p></div>
+                    <span style="display:block;margin:17px 0;">1.0.0</span>
+                    <p>后台登录成功邮件通知!</p>
+                  </div>
+              </div>
+             </div>
+             </div>
+
+
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-12 col-xm-12" style="background:#ffffff;">
+                <div class="row help3">
+                  <div class="col-md-12 col-lg-12 col-ms-12 col-xs-12"  style="margin-bottom:5px;">
+                  <h2 class="reimen">热门</h2>
+                  </div>
+                  <div class="col-md-12 col-lg-12 col-ms-12 col-xs-12 help2" >
+                  <a href="">后台登录成功邮件通知插件</a>
+                  <p>后台登录成功邮件通知!</p>
+                  </div>
+                  <div class="col-md-12 col-lg-12 col-ms-12 col-xs-12 help2" >
+                  <a href="">后台登录成功邮件通知插件</a>
+                  <p>后台登录成功邮件通知!</p>
+                  </div>
+                  <div class="col-md-12 col-lg-12 col-ms-12 col-xs-12 help2" >
+                  <a href="">后台登录成功邮件通知插件</a>
+                  <p>后台登录成功邮件通知!</p>
+                  </div>
+                  <div class="col-md-12 col-lg-12 col-ms-12 col-xs-12 help2" >
+                  <a href="">后台登录成功邮件通知插件</a>
+                  <p>EvaThumber 是一个基于URL的轻量级图片处理库，支持缩放/旋转/截取/滤镜等多种常用图片处理，支持设置水印/二维码，并且可以进行面部识别以及PNG优化压缩，所有处理仅仅需要通过更改图片的URL。</p>
+                </div>
+            </div>
+          </div>
+         </div>
+         </div>
+       <div class="footer_buttom">
+              <button type="button" class="btn btn-default btn-box" style="text-align: center;font-size:20px;padding:0.5% 7%;border:1px solid #666;">查看更多</button>
+          </div>
+    </div>
+    <div class="big_rows">
+      <div class="container">
+        <div class="titles">
+              <h3>服务帮助</h3>
+              <p>让我们一起完成更好用的建站系统（旅烨CMS），为大家提供更优质的产品</p>
+          </div>
+          <div class="row frend" style="margin-bottom:100px;">
+            <div class="col-lg-2 col-md-2 col-xm-6 col-xs-6">
+              <img src="img/footer_03.jpg">
+            </div>
+            <div class="col-lg-2 col-md-2 col-xm-6 col-xs-6">
+              <img src="img/footer_05.jpg" alt="">
+            </div>
+            <div class="col-lg-2 col-md-2 col-xm-6 col-xs-6">
+                <img src="img/footer_14.jpg" alt="">
+            </div>
+            <div class="col-lg-2 col-md-2 col-xm-6 col-xs-6">
+                <img src="img/footer_16.jpg" alt="">
+            </div>
+            <div class="col-lg-2 col-md-2 col-xm-6 col-xs-6">
+                <img src="img/footer_08.jpg" alt="">
+            </div>
+            <div class="col-lg-2 col-md-2 col-xm-6 col-xs-6">
+                <img src="img/footer_11.jpg" alt="">
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="whats">
+          <div class="container">
+             <div class="row box">
+                <div class="col-lg-4 col-md-4  col-sm-12 col-xs-12 left_col">
+               <div class="row">
+                 <img src="img/logo2_03.jpg">
+                 <p>Copyright © 2012 - 2016 LvyeCMS All Right Reserved.</p>
+                 </div>
+               </div>
+                <div class="col-lg-4 col-md-4  col-sm-12 col-xs-12 f-center_box">
+                 <div class="row">
+                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                       <h5>开始</h5>
+                       <a href="#">注册账号</a>
+                       <a href="#">免费试用</a>
+                     </div>
+                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                       <h5>服务</h5>
+                       <a href="#">如何使用</a>
+                       <a href="#">授权</a>
+                     </div>
+                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                       <h5>关于</h5>
+                       <a href="#">联系我们</a>
+                       <a href="#">博客</a>
+                     </div>       
+                 </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="row right_box">
+                  <p style="font-size:20px;">分享</p>
+                  <div class="icon">
+                  <a href="#"><img src="img/icon_03.jpg"></a>
+                  <a href="#"><img src="img/icon_05.jpg"></a>
+                  <a href="#"><img src="img/icon_07.jpg"></a>
+                  <a href="#"><img src="img/icon_09.jpg"></a>
+                  </div>
+                </div>
+               </div>
+             </div>
+          </div>
+   </div>
+</body>
+</html>

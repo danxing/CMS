@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/html5shiv.min.js"></script>
+</head>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+    .contant{
+        width: 1280px;
+        height: 500px;
+        border: 1px solid red;
+        margin: 30px auto;
+        clear: both;
+        position: relative;
+        overflow: hidden; 
+    }
+    ul{
+        width: 4000px;
+        position: absolute;
+        overflow: hidden;
+    }
+    .list{
+        overflow: hidden;
+    }
+    .contant li {
+        float: left;
+        width: 411px;
+        margin:7px;
+    }
+    .buttons{
+        width: 100px;
+        position: relative;
+        top:400px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+            }
+      .buttons .btn-left{
+        float: left;
+      }
+      .buttons .btn-right{
+        float: right;
+      }
+</style>
+<script>
+    $(function(){
+        var page=1;
+        var i=3;
+        var left_btn=$('.btn-left');
+        var right_btn=$('.btn-right');
+        var list=$('.list');
+        var contant=$('.contant').width();
+        var len=$('.contant').find('.list li').length;
+        var page_content=Math.ceil(len/i);
+        left_btn.click(function(){
+          if(!list.is(':animated')){
+            if(page==page_content){
+                list.animate({left:'0px'},'solw');
+                page=1;
+            }
+            else{
+                list.animate({left:'-='+contant},'solw');
+                page++;
+            }
+          }
+
+        })
+
+         right_btn.click(function(){
+          if(!list.is(':animated')){
+            if(page==1){
+               list.animate({left:'-='+contant*(page_content-1)},'solw');
+                page=page_content;
+            }
+            else{
+                list.animate({left:'-='+contant},'solw');
+                page--;
+            }
+          }
+
+        })
+         /*$('span.prev').click(function(){
+                if(!list.is(':animated')){ //判断内容是否在运动状态
+                    if(page==1){
+                        list.animate({left:'-='+v_width*(page_count-1)},'slow');
+                        page=page_count;  //如果是第一版面，再点击就返回最后版面
+                    }else{
+                        list.animate({left:'-='+v_width},'slow');  //=
+                        page--;
+                    }
+                }
+         })*/
+
+
+    })
+</script>
+<body>
+    <div class="contant">
+    <ul class="list">
+        <li>
+           <a href="#">
+             <img src="img/imgs_03.png">
+             <h3>标题</h3>
+             <p>所发生的换房间爱护肤好久</p>
+           </a>
+         </li>
+          <li>
+           <a href="#">
+             <img src="img/imgs_05.png">
+             <h3>标题</h3>
+             <p>所发生的换房间爱护肤好久</p>
+           </a>
+         </li>
+          <li>
+           <a href="#">
+             <img src="img/imgs_07.jpg">
+             <h3>标题</h3>
+             <p>所发生的换房间爱护肤好久</p>
+           </a>
+         </li>
+
+
+          <li>
+           <a href="#">
+             <img src="img/imgs_05.png">
+             <h3>标题</h3>
+             <p>所发生的换房间爱护肤好久</p>
+           </a>
+         </li>
+          <li>
+           <a href="#">
+             <img src="img/imgs_03.png">
+             <h3>标题</h3>
+             <p>所发生的换房间爱护肤好久</p>
+           </a>
+         </li>
+          <li>
+           <a href="#">
+             <img src="img/imgs_07.jpg">
+             <h3>标题</h3>
+             <p>所发生的换房间爱护肤好久</p>
+           </a>
+         </li>
+      </ul>
+      <div class="buttons">
+                 <button type="button" class="btn btn-default glyphicon glyphicon-chevron-left btn-left"><</button>
+                 <button class="btn btn-default glyphicon glyphicon-chevron-right btn-right">></button>
+      </div>
+    </div>
+            <div class="btn-group">
+          <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+            Large button <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            ...
+          </ul>
+        </div>
+</body>
+</html>
